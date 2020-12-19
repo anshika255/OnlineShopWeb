@@ -1,0 +1,77 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<title>Login Page</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Retailer Forgot</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="forgetForm" (ngSubmit)="forget()">
+                    
+                            
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" type="password"
+                            id="password" placeholder="Password"
+                            class="form-control"
+                            [ngClass]="{ 'is-invalid': forgetForm.get('password').touched && forgetForm.get('password').invalid }"
+                            formControlName="password"/>
+                            <span class="invalid-feedback">
+                                <span *ngIf="forgetForm.get('password').hasError('required')">Password can't be blank.</span>
+                                <span *ngIf="forgetForm.get('password').hasError('symbol')">Password must contain @</span>
+                                <span *ngIf="forgetForm.get('password').hasError('minlength')">Password must contain minimum 6 characters</span>
+                              </span>
+                        </div>
+                        
+    
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" id="confirmPassword" placeholder="Confirm Password"
+                                class="form-control"
+                                [ngClass]="{ 'is-invalid': forgetForm.get('confirmPassword').touched && forgetForm.get('confirmPassword').invalid }"
+                                formControlName="confirmPassword"/>
+    
+                                <span class="invalid-feedback">Passwords must match.</span>
+                           </div>
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
+                            </div>
+                            <input type="tel" id="otp" placeholder="Enter OTP:"
+                            class="form-control"
+                            [ngClass]="{ 'is-invalid': forgetForm.get('otp').touched && forgetForm.get('otp').invalid }"
+                            formControlName="otp"/>
+                            <span class="invalid-feedback">
+                                <span *ngIf="forgetForm.get('otp').hasError('required')">OTP is required.</span>
+                                <span *ngIf="forgetForm.get('otp').hasError('pattern')">Please, Enter 6 digit otp.</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Submit" class="btn float-right submit_btn" [disabled]="forgetForm.invalid">
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+    </div>
+

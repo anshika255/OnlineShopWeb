@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Order Details Table with Search Filter</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
+    </head>
+<body>
+    
+    
+                  
+
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-4">
+						<h2>Retailer <b>Details</b></h2>
+					</div>
+					
+                </div>
+            </div>
+			<div class="table-filter">
+				<div class="row">
+                    <div class="col-sm-9">
+						
+						
+						
+						
+                    </div>
+                </div>
+			</div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>R.Id</th>
+                        <th>Retailer's Name</th>
+						<th>Retailer's Email</th>
+						<th>Mobile Number</th>						
+                        <th>Delete Retailer</th>					
+						
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rtlr of list">
+                        <td><a href="#" >{{rtlr.retailerid}}</a></td>
+                        <td>{{rtlr.retailername}}</td>
+                        <td>{{rtlr.email}}</td>
+                        <td>{{rtlr.mobile}}</td>    
+                        <td><input type="button" (click)="RemoveRetailer(rtlr.retailerid)" value="Delete" class/></td>                      
+						</tr>
+                </tbody>
+            </table>
+			
+        </div>
+         
+        <div>
+            <button type="submit" [routerLink]="['/addprod']"  class="btn btn-primary btn-lg float-right" style="width:10cm; text-align: center;">Show All Products</button> 
+        </div>
+        
+    </div> 
+
+    <br> 
+    
+   				
+</body>
+</html>
